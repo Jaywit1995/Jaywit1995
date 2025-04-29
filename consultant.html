@@ -1,0 +1,1460 @@
+<style>
+:root {
+    --primary-color: #e67e22;
+    --secondary-color: black;
+    --success-color: #10b981;
+    --danger-color: #e67e22;
+    --warning-color: #000;
+    --light-color: #f3f4f6;
+    --dark-color: #1f2937;
+    --white: #ffffff;
+    --black: #000000;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+header h1, header p, nav ul li a {
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Layout Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #e64708 100%);
+    color: var(--white);
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--dark-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--white);
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Section Styles */
+.section {
+    padding: 3rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+/* Consultant Card Styles */
+.consultant-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.consultant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.consultant-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 5px solid var(--primary-color);
+}
+
+.consultant-info {
+    text-align: center;
+}
+
+.consultant-name {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.contact-info {
+    margin: 1.5rem 0;
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Service Card Styles */
+.service-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.price-tag {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 1rem 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.discount-badge {
+    background-color: var(--success-color);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    font-weight: 600;
+}
+
+.service-images {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.service-img {
+    width: calc(50% - 0.5rem);
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.service-img:hover {
+    transform: scale(1.02);
+}
+
+ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Hotel Booking Styles */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hotel-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hotel-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hotel-details {
+    padding: 1.5rem;
+}
+
+.hotel-name {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hotel-location {
+    display: flex;
+    align-items: center;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.hotel-location i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.hotel-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+.hotel-price span {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #666;
+}
+
+.hotel-rating {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hotel-amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.amenity {
+    background: var(--light-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.book-btn, .submit-booking {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.book-btn:hover, .submit-booking:hover {
+    background-color: #d35400;
+}
+
+.booking-form {
+    margin-top: 1rem;
+    display: none;
+}
+
+.booking-form.active {
+    display: block;
+}
+
+.date-picker {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.date-input {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.room-selection {
+    margin-bottom: 1rem;
+}
+
+.room-option {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.room-option input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.total-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    text-align: right;
+    color: var(--dark-color);
+}
+
+.country-filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.country-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--light-color);
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.country-btn.active, .country-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.close-modal {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--dark-color);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 0.75rem;
+    }
+
+    .service-img {
+        width: 100%;
+    }
+
+    .consultant-img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .date-picker {
+        flex-direction: column;
+    }
+}
+
+/* Hotel Grid Adjustments */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.hotel-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Ensure all hotel cards have equal height */
+.hotel-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.hotel-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make sure the book button stays at the bottom */
+.submit-booking {
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .hotel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>SKOTECH Travel Consultancy</h1>
+            <p>Expert advice for all your travel planning needs</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#consultancy">Travel Consultancy</a></li>
+                <li><a href="#assistance">Airport Assistance</a></li>
+                <li><a href="#hotel">Hotel Reservations</a></li>
+                <li><a href="book-now1.html">Payment</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section id="consultancy" class="section">
+            <h2 class="section-title">Meet Your Travel Consultant</h2>
+            <div class="consultant-card">
+                <img src="images/team-3.jpg" alt="Travel Consultant" class="consultant-img">
+                <div class="consultant-info">
+                    <h3 class="consultant-name">Olaolurun Sunday Kunle</h3>
+                    <p>Certified Travel and Tour with IT Consultant over 20 years of experience in creating unforgettable travel experiences.</p>
+                    <div class="contact-info">
+                        <p><strong>Phone:</strong> +234-8067-355-279</p>
+                        <p><strong>Email:</strong> skotechnology@gmail.com</p>
+                        <a href="https://wa.me/+2348067355279" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="assistance" class="section">
+            <h2 class="section-title">Airport Assistance Services</h2>
+            <div class="service-card">
+                <h3 class="service-title">Airport Logistics Support</h3>
+                <p>From the moment you arrive at the airport until you board your flight, our team ensures a seamless travel experience. We handle all the details so you can relax and enjoy your journey.</p>
+                
+                <div class="service-images">
+                    <img src="SKO IMG/crew2.jpeg" alt="Airport Assistance" class="service-img">
+                    <img src="SKO IMG/crew4.jpeg" alt="Airport Lounge" class="service-img">
+                </div>
+                
+                <div class="price-tag">Starting from ₦150,000</div>
+                
+                <h4>Our Services Include:</h4>
+                <ul>
+                    <li>Meet and greet services</li>
+                    <li>Fast-track through immigration</li>
+                    <li>Luggage assistance</li>
+                    <li>Airport transfers</li>
+                    <li>VIP lounge access</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3 class="service-title">Premium Taxi Services</h3>
+                <p>Reliable and comfortable transportation to and from the airport in our fleet of luxury vehicles. Our professional drivers are trained to provide exceptional service.</p>
+                
+                <div class="service-images">
+                    <img src="SKO IMG/pass.jpeg" alt="Taxi Service" class="service-img">
+                    <img src="SKO IMG/depart.jpeg" alt="Airport Transfer" class="service-img">
+                </div>
+                
+                <div class="price-tag">Starting from ₦250,000</div>
+            </div>
+        </section>
+        
+        <section id="hotel" class="section">
+            <h2 class="section-title">Hotel Reservation Bookings</h2>
+            
+            <div class="country-filter">
+                <button class="country-btn active" data-country="all">All Countries</button>
+                <button class="country-btn" data-country="nigeria">Nigeria</button>
+                <button class="country-btn" data-country="dubai">Dubai</button>
+                <button class="country-btn" data-country="uk">United Kingdom</button>
+                <button class="country-btn" data-country="usa">USA</button>
+                <button class="country-btn" data-country="south-africa">South Africa</button>
+                <button class="country-btn" data-country="france">France</button>
+                <button class="country-btn" data-country="china">China</button>
+            </div>
+            
+            <div class="hotel-grid">
+                <!-- Nigeria Hotels -->
+                <div class="hotel-card" data-country="nigeria">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="Eko Hotels & Suites" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">Eko Hotels & Suites</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Victoria Island, Lagos, Nigeria</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">Pool</span>
+                            <span class="amenity">Spa</span>
+                            <span class="amenity">Gym</span>
+                            <span class="amenity">Restaurant</span>
+                        </div>
+                        <div class="hotel-price">
+                            From ₦85,000 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-nigeria1">Check-in</label>
+                                    <input type="date" id="checkin-nigeria1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-nigeria1">Check-out</label>
+                                    <input type="date" id="checkout-nigeria1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-nigeria1" value="85000" checked>
+                                        Deluxe Room
+                                    </label>
+                                    <span>₦85,000/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-nigeria1" value="120000">
+                                        Executive Suite
+                                    </label>
+                                    <span>₦120,000/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-nigeria1" value="250000">
+                                        Presidential Suite
+                                    </label>
+                                    <span>₦250,000/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-nigeria1">Number of Guests</label>
+                                <select id="guests-nigeria1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: ₦<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="Eko Hotels & Suites">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dubai Hotels -->
+                <div class="hotel-card" data-country="dubai">
+                    <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090" alt="Burj Al Arab" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">Burj Al Arab Jumeirah</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dubai, United Arab Emirates</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">Private Beach</span>
+                            <span class="amenity">Helipad</span>
+                            <span class="amenity">Butler Service</span>
+                            <span class="amenity">9 Restaurants</span>
+                        </div>
+                        <div class="hotel-price">
+                            From $1,000 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-dubai1">Check-in</label>
+                                    <input type="date" id="checkin-dubai1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-dubai1">Check-out</label>
+                                    <input type="date" id="checkout-dubai1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-dubai1" value="1000" checked>
+                                        Deluxe Suite
+                                    </label>
+                                    <span>$1,000/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-dubai1" value="1800">
+                                        Panoramic Suite
+                                    </label>
+                                    <span>$1,800/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-dubai1" value="5000">
+                                        Royal Suite
+                                    </label>
+                                    <span>$5,000/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-dubai1">Number of Guests</label>
+                                <select id="guests-dubai1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: $<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="Burj Al Arab Jumeirah">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- UK Hotels -->
+                <div class="hotel-card" data-country="uk">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4" alt="The Savoy" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">The Savoy</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>London, United Kingdom</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">River View</span>
+                            <span class="amenity">Afternoon Tea</span>
+                            <span class="amenity">Historic</span>
+                            <span class="amenity">Michelin Star</span>
+                        </div>
+                        <div class="hotel-price">
+                            From £350 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-uk1">Check-in</label>
+                                    <input type="date" id="checkin-uk1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-uk1">Check-out</label>
+                                    <input type="date" id="checkout-uk1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-uk1" value="350" checked>
+                                        Superior Room
+                                    </label>
+                                    <span>£350/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-uk1" value="450">
+                                        Deluxe Room
+                                    </label>
+                                    <span>£450/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-uk1" value="650">
+                                        River View Suite
+                                    </label>
+                                    <span>£650/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-uk1">Number of Guests</label>
+                                <select id="guests-uk1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: £<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="The Savoy">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- France Hotels -->
+                <div class="hotel-card" data-country="france">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4" alt="Hôtel Ritz Paris" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">Hôtel Ritz Paris</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Paris, France</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">Luxury</span>
+                            <span class="amenity">Spa</span>
+                            <span class="amenity">Michelin Star</span>
+                            <span class="amenity">Historic</span>
+                        </div>
+                        <div class="hotel-price">
+                            From €800 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-france1">Check-in</label>
+                                    <input type="date" id="checkin-france1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-france1">Check-out</label>
+                                    <input type="date" id="checkout-france1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-france1" value="800" checked>
+                                        Superior Room
+                                    </label>
+                                    <span>€800/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-france1" value="1200">
+                                        Deluxe Room
+                                    </label>
+                                    <span>€1,200/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-france1" value="2500">
+                                        Imperial Suite
+                                    </label>
+                                    <span>€2,500/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-france1">Number of Guests</label>
+                                <select id="guests-france1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: €<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="Hôtel Ritz Paris">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- USA Hotels -->
+                <div class="hotel-card" data-country="usa">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="The Plaza Hotel" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">The Plaza Hotel</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York, USA</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">Central Park View</span>
+                            <span class="amenity">Spa</span>
+                            <span class="amenity">Historic</span>
+                            <span class="amenity">Restaurant</span>
+                        </div>
+                        <div class="hotel-price">
+                            From $500 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-usa1">Check-in</label>
+                                    <input type="date" id="checkin-usa1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-usa1">Check-out</label>
+                                    <input type="date" id="checkout-usa1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-usa1" value="500" checked>
+                                        Superior Room
+                                    </label>
+                                    <span>$500/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-usa1" value="750">
+                                        Deluxe Room
+                                    </label>
+                                    <span>$750/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-usa1" value="1200">
+                                        Plaza Suite
+                                    </label>
+                                    <span>$1,200/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-usa1">Number of Guests</label>
+                                <select id="guests-usa1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: $<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="The Plaza Hotel">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- South Africa Hotels -->
+                <div class="hotel-card" data-country="south-africa">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="The Oyster Box" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">The Oyster Box</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Durban, South Africa</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">Ocean View</span>
+                            <span class="amenity">Spa</span>
+                            <span class="amenity">Pool</span>
+                            <span class="amenity">Restaurant</span>
+                        </div>
+                        <div class="hotel-price">
+                            From R3,500 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-sa1">Check-in</label>
+                                    <input type="date" id="checkin-sa1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-sa1">Check-out</label>
+                                    <input type="date" id="checkout-sa1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-sa1" value="3500" checked>
+                                        Classic Room
+                                    </label>
+                                    <span>R3,500/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-sa1" value="5000">
+                                        Luxury Room
+                                    </label>
+                                    <span>R5,000/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-sa1" value="8000">
+                                        Ocean Suite
+                                    </label>
+                                    <span>R8,000/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-sa1">Number of Guests</label>
+                                <select id="guests-sa1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: R<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="The Oyster Box">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- China Hotels -->
+                <div class="hotel-card" data-country="china">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945" alt="The Peninsula Shanghai" class="hotel-image">
+                    <div class="hotel-details">
+                        <h3 class="hotel-name">The Peninsula Shanghai</h3>
+                        <div class="hotel-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Shanghai, China</span>
+                        </div>
+                        <div class="hotel-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="hotel-amenities">
+                            <span class="amenity">River View</span>
+                            <span class="amenity">Spa</span>
+                            <span class="amenity">Pool</span>
+                            <span class="amenity">Restaurant</span>
+                        </div>
+                        <div class="hotel-price">
+                            From ¥2,500 <span>per night</span>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                        
+                        <div class="booking-form">
+                            <div class="date-picker">
+                                <div class="date-input">
+                                    <label for="checkin-china1">Check-in</label>
+                                    <input type="date" id="checkin-china1" class="checkin-date">
+                                </div>
+                                <div class="date-input">
+                                    <label for="checkout-china1">Check-out</label>
+                                    <input type="date" id="checkout-china1" class="checkout-date">
+                                </div>
+                            </div>
+                            
+                            <div class="room-selection">
+                                <label>Room Type</label>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-china1" value="2500" checked>
+                                        Deluxe Room
+                                    </label>
+                                    <span>¥2,500/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-china1" value="3500">
+                                        Premier Room
+                                    </label>
+                                    <span>¥3,500/night</span>
+                                </div>
+                                <div class="room-option">
+                                    <label>
+                                        <input type="radio" name="room-china1" value="6000">
+                                        Peninsula Suite
+                                    </label>
+                                    <span>¥6,000/night</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="guests-china1">Number of Guests</label>
+                                <select id="guests-china1" class="guest-select">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                </select>
+                            </div>
+                            
+                            <div class="total-price">
+                                Total: ¥<span class="calculated-price">0</span>
+                            </div>
+                            
+                            <button class="submit-booking" data-hotel="The Peninsula Shanghai">Complete Booking</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 SKOTECH Travel Consultancy. All rights reserved.</p>
+            <p>Contact us: info@skotechravel.com | +234 812 345 6789</p>
+        </div>
+    </footer>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Country Filter Functionality
+    const countryButtons = document.querySelectorAll('.country-btn');
+    const hotelCards = document.querySelectorAll('.hotel-card');
+    
+    countryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            countryButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const country = this.dataset.country;
+            
+            // Filter hotels
+            hotelCards.forEach(card => {
+                if (country === 'all' || card.dataset.country === country) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+    // Booking Form Toggle
+    const bookButtons = document.querySelectorAll('.book-btn');
+    
+    bookButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const bookingForm = this.nextElementSibling;
+            const isVisible = bookingForm.classList.contains('active');
+            
+            // Close all other booking forms
+            document.querySelectorAll('.booking-form').forEach(form => {
+                form.classList.remove('active');
+                form.closest('.hotel-card').querySelector('.book-btn').textContent = 'Book Now';
+            });
+            
+            if (!isVisible) {
+                bookingForm.classList.add('active');
+                this.textContent = 'Close';
+                
+                // Set minimum date for check-in to today
+                const today = new Date().toISOString().split('T')[0];
+                bookingForm.querySelector('.checkin-date').min = today;
+                
+                // Scroll to the form
+                bookingForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        });
+    });
+    
+    // Price Calculation Functionality
+    document.querySelectorAll('.booking-form').forEach(form => {
+        const checkinInput = form.querySelector('.checkin-date');
+        const checkoutInput = form.querySelector('.checkout-date');
+        const roomOptions = form.querySelectorAll('input[type="radio"]');
+        const guestSelect = form.querySelector('.guest-select');
+        const priceDisplay = form.querySelector('.calculated-price');
+        
+        // Function to calculate total price
+        function calculateTotal() {
+            const checkinDate = new Date(checkinInput.value);
+            const checkoutDate = new Date(checkoutInput.value);
+            
+            if (!checkinInput.value || !checkoutInput.value || isNaN(checkinDate) || isNaN(checkoutDate)) {
+                priceDisplay.textContent = '0';
+                return;
+            }
+            
+            // Calculate number of nights
+            const timeDiff = checkoutDate - checkinDate;
+            const nights = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+            
+            if (nights <= 0) {
+                priceDisplay.textContent = '0';
+                return;
+            }
+            
+            // Get selected room price
+            const selectedRoom = form.querySelector('input[type="radio"]:checked');
+            if (!selectedRoom) {
+                priceDisplay.textContent = '0';
+                return;
+            }
+            
+            const roomPrice = parseFloat(selectedRoom.value);
+            const totalPrice = nights * roomPrice;
+            
+            // Display total price with currency symbol
+            const currencySymbol = form.querySelector('.hotel-price').textContent.match(/^[^\d]+/)[0].trim();
+            priceDisplay.textContent = totalPrice.toLocaleString();
+        }
+        
+        // Event listeners for price calculation
+        checkinInput.addEventListener('change', function() {
+            if (this.value) {
+                checkoutInput.min = this.value;
+            }
+            calculateTotal();
+        });
+        
+        checkoutInput.addEventListener('change', calculateTotal);
+        roomOptions.forEach(option => option.addEventListener('change', calculateTotal));
+        guestSelect.addEventListener('change', calculateTotal);
+    });
+    
+    // Booking Confirmation Modal
+    const modal = document.getElementById('confirmationModal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    document.querySelectorAll('.submit-booking').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const form = this.closest('.booking-form');
+            const checkin = form.querySelector('.checkin-date').value;
+            const checkout = form.querySelector('.checkout-date').value;
+            
+            if (!checkin || !checkout) {
+                alert('Please select both check-in and check-out dates');
+                return;
+            }
+            
+            const hotelName = this.dataset.hotel;
+            const roomType = form.querySelector('input[type="radio"]:checked').parentElement.textContent.trim();
+            const totalPrice = form.querySelector('.calculated-price').textContent;
+            const currencySymbol = form.querySelector('.hotel-price').textContent.match(/^[^\d]+/)[0].trim();
+            
+            document.getElementById('confirmationText').textContent = 
+                `Thank you for booking at ${hotelName}!\n\n` +
+                `Room Type: ${roomType}\n` +
+                `Check-in: ${checkin}\n` +
+                `Check-out: ${checkout}\n` +
+                `Total Price: ${currencySymbol}${totalPrice}\n\n` +
+                `Your reservation has been confirmed.`;
+            
+            modal.style.display = 'flex';
+            
+            // Countdown to payment page
+            let seconds = 5;
+            const countdownElement = document.getElementById('countdown');
+            const countdownInterval = setInterval(() => {
+                seconds--;
+                countdownElement.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = "book-now1.html";
+                }
+            }, 1000);
+        });
+    });
+    
+    // Close modal
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+        window.location.href = "book-now1.html";
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            window.location.href = "book-now1.html";
+        }
+    });
+    
+    // Initialize date pickers
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('.checkin-date').forEach(input => {
+        input.min = today;
+    });
+});
+
+// Equalize hotel card heights
+function equalizeCardHeights() {
+    const hotelCards = document.querySelectorAll('.hotel-card');
+    let maxHeight = 0;
+    
+    // Reset heights first
+    hotelCards.forEach(card => {
+        card.style.height = 'auto';
+    });
+    
+    // Find the tallest card
+    hotelCards.forEach(card => {
+        if (card.offsetHeight > maxHeight) {
+            maxHeight = card.offsetHeight;
+        }
+    });
+    
+    // Apply to all cards
+    hotelCards.forEach(card => {
+        card.style.height = `${maxHeight}px`;
+    });
+}
+
+// Run on load and window resize
+window.addEventListener('load', equalizeCardHeights);
+window.addEventListener('resize', equalizeCardHeights);
+
+        </script>
+
+</body>
+</html>

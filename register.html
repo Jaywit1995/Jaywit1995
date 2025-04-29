@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKOTECH Travels - Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        .success-message {
+            color: #28a745;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .verification-banner {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .password-input {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .strength-0 { color: red; }
+        .strength-1 { color: orangered; }
+        .strength-2 { color: orange; }
+        .strength-3 { color: yellowgreen; }
+        .strength-4 { color: green; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div id="verificationBanner" class="verification-banner">
+                Verification email sent to <span id="userEmailSpan"></span>. Please check your inbox.
+            </div>
+            <div class="auth-header">
+                <img src="SKO IMG/sko logo 2.jpg" alt="SKOTECH Travels" class="auth-logo">
+                <h2>Create Your Account</h2>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                    <div id="fullNameError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                    <div id="emailError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                    <div id="phoneError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password (6-10 characters with number)</label>
+                    <div class="password-input">
+                        <input type="password" id="password" required minlength="6" maxlength="10">
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div class="password-strength">
+                        <span id="strengthText">Password Strength: </span>
+                        <span id="strengthMeter"></span>
+                    </div>
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" required>
+                        <i class="fas fa-eye toggle-password"></i>
+                    </div>
+                    <div id="confirmPasswordError" class="error-message"></div>
+                </div>
+                <button type="submit" id="registerBtn">Register</button>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                    <p><a href="forgot-password.html">Forgot Password?</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS with your Public Key
+        (function() {
+            emailjs.init({
+                publicKey: "RRGCsQ_zpgIK8PqnU",
+            });
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Password visibility toggle
+            document.querySelectorAll('.toggle-password').forEach(icon => {
+                icon.addEventListener('click', function() {
+                    const input = this.previousElementSibling;
+                    const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                    input.setAttribute('type', type);
+                    this.classList.toggle('fa-eye-slash');
+                });
+            });
+
+            // Password strength indicator
+            const passwordInput = document.getElementById('password');
+            const strengthMeter = document.getElementById('strengthMeter');
+            
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    
+                    if (password.length >= 6) strength++;
+                    if (password.length >= 8) strength++;
+                    if (/\d/.test(password)) strength++;
+                    if (/[A-Z]/.test(password)) strength++;
+                    if (/[^A-Za-z0-9]/.test(password)) strength++;
+                    
+                    const strengthText = ["Very Weak", "Weak", "Medium", "Strong", "Very Strong"][strength] || "";
+                    strengthMeter.textContent = strengthText;
+                    strengthMeter.className = "strength-" + strength;
+                });
+            }
+
+            // Registration form handling
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    clearErrors();
+
+                    const fullName = document.getElementById('fullName').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    
+                    // Validation
+                    let isValid = true;
+                    
+                    if (!fullName) {
+                        showError('fullNameError', 'Full name is required');
+                        isValid = false;
+                    }
+                    
+                    if (!email) {
+                        showError('emailError', 'Email is required');
+                        isValid = false;
+                    } else if (!validateEmail(email)) {
+                        showError('emailError', 'Please enter a valid email');
+                        isValid = false;
+                    }
+                    
+                    if (!phone) {
+                        showError('phoneError', 'Phone number is required');
+                        isValid = false;
+                    } else if (!validatePhone(phone)) {
+                        showError('phoneError', 'Please enter a valid phone number');
+                        isValid = false;
+                    }
+                    
+                    if (!password) {
+                        showError('passwordError', 'Password is required');
+                        isValid = false;
+                    } else if (password.length < 6 || password.length > 10) {
+                        showError('passwordError', 'Password must be 6-10 characters');
+                        isValid = false;
+                    } else if (!/\d/.test(password)) {
+                        showError('passwordError', 'Password must contain at least one number');
+                        isValid = false;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        showError('confirmPasswordError', 'Passwords do not match');
+                        isValid = false;
+                    }
+                    
+                    if (!isValid) return;
+                    
+                    // Call the membership function to send the email
+                    membership(fullName, email, phone, password);
+                });
+            }
+            
+            function membership(name, email, phone, password) {
+    const templateParams = {
+        name: name,
+        email: email,
+        subject: phone,
+        password: password,
+        confirmPassword: password
+    };
+    
+    // Save user data to localStorage with two keys for easy lookup
+    const userData = {
+        fullName: name,
+        email: email,
+        phone: phone,
+        password: password
+    };
+    
+    // Store with both email and phone as keys
+    localStorage.setItem('user_email_' + email, JSON.stringify(userData));
+    localStorage.setItem('user_phone_' + phone, JSON.stringify(userData));
+    
+    emailjs.send("service_n0z2jjx", "template_rmy5oby", templateParams)
+        .then(() => {
+            alert('Registration successful! Email sent.');
+            document.getElementById('userEmailSpan').textContent = email;
+            document.getElementById('verificationBanner').style.display = 'block';
+            
+            // Redirect to login page after 3 seconds
+            setTimeout(() => {
+                window.location.href = 'login.html?registered=true';
+            }, 3000);
+        })
+        .catch((error) => {
+            console.log('Error sending email:', error);
+            showError('emailError', 'Failed to send confirmation email. Please try again later.');
+        });
+}
+            
+            function showError(elementId, message) {
+                const element = document.getElementById(elementId);
+                element.textContent = message;
+                element.style.display = 'block';
+            }
+            
+            function clearErrors() {
+                document.querySelectorAll('.error-message').forEach(el => {
+                    el.textContent = '';
+                    el.style.display = 'none';
+                });
+            }
+            
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            function validatePhone(phone) {
+                const re = /^[\d\s+-]+$/;
+                return re.test(phone) && phone.length >= 8;
+            }
+        }); 
+
+
+    </script>
+</body>
+</html>

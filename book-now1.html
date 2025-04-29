@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Booking - SKOTECH Travels and Tours</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for blinking effect and file upload preview */
+        .blinking {
+            animation: blink 1s linear infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .file-preview {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f8ff;
+            display: none;
+        }
+        .file-preview img {
+            max-width: 100%;
+            max-height: 150px;
+            display: block;
+            margin: 10px auto;
+        }
+        .error-message {
+            color: var(--danger-color);
+            margin-top: 5px;
+            display: none;
+        }
+        /* Print-specific styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .print-receipt {
+                display: block !important;
+                text-align: center;
+            }
+            .print-receipt h2 {
+                color: #000;
+                margin-bottom: 20px;
+            }
+            .file-preview {
+                display: block !important;
+                background: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .file-preview img {
+                max-height: 300px;
+                margin: 0 auto;
+            }
+            body {
+                background: #fff !important;
+                color: #000 !important;
+                font-size: 14pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="sub-header no-print">
+        <nav>
+            <div class="logo">
+                <img src="SKO IMG/sko logo 2.jpg" alt="SKOTECH Travels">
+                <span>SKOTECH Travels</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="login.html" class="btn btn-outline">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <div class="sub-header-content">
+            <h1>Complete Your Booking</h1>
+        </div>
+    </header>
+
+    <section class="booking-confirmation">
+        <div class="confirmation-container">
+            <!-- Account Details Popup -->
+            <div class="account-popup no-print" id="accountPopup">
+                <div class="popup-content">
+                    <h3><i class="fas fa-university blinking"></i> Payment Details</h3>
+                    <div class="account-details blinking">
+                        <p><strong>Account Name:</strong> OLAOLORUN SUNDAY KUNLE</p>
+                        <p><strong>Account No:</strong> 0028579695</p>
+                        <p><strong>Bank Name:</strong> STERLING BANK</p>
+                    </div>
+                    <div class="popup-timer">
+                        <p>This information will disappear in <span id="countdown">30 sec</span></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="closePopup()">I've Copied Details</button>
+                </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary">
+                <h2>Your Booking Summary</h2>
+                <p class="booking-description">Thank you for choosing SKOTECH Travels for your <span id="serviceName">selected service</span>. Please make payment to the account details provided above and upload your payment receipt below to complete your booking.</p>
+                
+                <!-- Image Carousel -->
+                <div class="booking-carousel no-print">
+                    <div class="carousel-container" id="carousel">
+                        <img src="SKO IMG/img1 (9).jpg" alt="Service Image 1" class="carousel-image active">
+                        <img src="SKO IMG/hotel2.png" alt="Service Image 2" class="carousel-image">
+                        <img src="SKO IMG/Screenshot 2024-09-06 at 12-41-11 NANTA DOCUMENTS.pdf.png" alt="Service Image 3" class="carousel-image">
+                        <img src="SKO IMG/img1 (7).jpg" alt="Service Image 4" class="carousel-image">
+                        <img src="SKO IMG/tiket.jpg" alt="Service Image 5" class="carousel-image">
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" onclick="prevImage()"><i class="fas fa-chevron-left"></i></button>
+                        <button class="carousel-btn" onclick="nextImage()"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Payment Receipt Upload -->
+                <div class="receipt-upload">
+                    <h3><i class="fas fa-receipt"></i> Upload Payment Receipt</h3>
+                    <div class="upload-box" id="uploadBox">
+                        <input type="file" id="receiptUpload" accept="image/*,.pdf">
+                        <label for="receiptUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload your payment receipt</p>
+                            <span>JPEG, PNG or PDF (Max 5MB)</span>
+                        </label>
+                    </div>
+                    <div class="file-preview" id="filePreview"></div>
+                </div>
+                
+                <!-- Personal Information -->
+                <div class="personal-info no-print">
+                    <h3><i class="fas fa-user-check"></i> Personal Information</h3>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <div class="gender-options">
+                                <input type="radio" id="male" name="gender" value="male" checked>
+                                <label for="male">Male</label>
+                                <input type="radio" id="female" name="gender" value="female">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" min="18" max="100" required>
+                            <div class="error-message" id="ageError">ADULT, TEENAGE, COUPLE have access to book a service. If you are UNDER-AGE your parent can proceed on your behalf. Thank you</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="booking-actions no-print">
+                    <button class="btn btn-primary" id="doneBtn">Complete Booking</button>
+                    <a href="https://wa.me/2348067355279" class="btn btn-outline" target="_blank" id="consultantBtn" style="display: none;">
+                        <i class="fab fa-whatsapp"></i> Meet a Consultant
+                    </a>
+                    <button class="btn btn-secondary" id="printReceiptBtn" style="display: none;" onclick="printReceipt()">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <button class="btn btn-secondary" id="savePdfBtn" style="display: none;" onclick="saveAsPdf()">
+                        <i class="fas fa-file-pdf"></i> Save as PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Booking Success Message -->
+            <div class="booking-success" id="bookingSuccess" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <h3>Booking Successful!</h3>
+                <p>You can now click to meet a consultant</p>
+                <div class="booking-actions">
+                    <a href="https://wa.me/2348067355279" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Meet a Consultant
+                    </a>
+                    <button class="btn btn-secondary" onclick="printReceipt()">
+                        <i class="fas fa-print"></i> Print Receipt
+                    </button>
+                    <button class="btn btn-secondary" onclick="saveAsPdf()">
+                        <i class="fas fa-file-pdf"></i> Save as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Receipt for printing -->
+    <div id="printableReceipt" class="print-receipt" style="display: none;">
+        <h2>Payment Receipt</h2>
+        <div id="receiptContent"></div>
+    </div>
+
+    <footer class="no-print">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SKOTECH Travels</h4>
+                <p>RC: 746137<br>A Subsidiary of SKO Technology Limited</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>08067355279<br>08129969132<br>08067355279</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 SKOTECH Travels and Tours. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        // Get service name from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceName = urlParams.get('service') || 'selected service';
+        document.getElementById('serviceName').textContent = serviceName;
+        
+        // Show account popup immediately with blinking effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.getElementById('accountPopup');
+            popup.style.display = 'flex';
+            
+            // Start 30-second countdown
+            let timeLeft = 30;
+            const countdownElement = document.getElementById('countdown');
+            const countdown = setInterval(function() {
+                timeLeft--;
+                countdownElement.textContent = `${timeLeft} sec`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    popup.style.display = 'none';
+                }
+            }, 1000);
+            
+            // Age verification
+            const ageInput = document.getElementById('age');
+            const doneBtn = document.getElementById('doneBtn');
+            const ageError = document.getElementById('ageError');
+            const consultantBtn = document.getElementById('consultantBtn');
+            
+            ageInput.addEventListener('input', function() {
+                if (this.value >= 20) {
+                    ageError.style.display = 'none';
+                    consultantBtn.style.display = 'inline-block';
+                } else {
+                    ageError.style.display = 'block';
+                    consultantBtn.style.display = 'none';
+                }
+            });
+            
+            // File upload handling
+            const receiptUpload = document.getElementById('receiptUpload');
+            const uploadBox = document.getElementById('uploadBox');
+            const filePreview = document.getElementById('filePreview');
+            const printReceiptBtn = document.getElementById('printReceiptBtn');
+            const savePdfBtn = document.getElementById('savePdfBtn');
+            
+            receiptUpload.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    const file = this.files[0];
+                    uploadBox.classList.add('success');
+                    
+                    // Display file preview
+                    filePreview.style.display = 'block';
+                    filePreview.innerHTML = `
+                        <p><strong>File selected:</strong> ${file.name}</p>
+                        <p><strong>Size:</strong> ${(file.size / 1024).toFixed(2)} KB</p>
+                    `;
+                    
+                    // If it's an image, show preview
+                    if (file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            filePreview.innerHTML += `<img src="${e.target.result}" alt="Receipt Preview">`;
+                            // Store the image data for printing
+                            document.getElementById('receiptContent').innerHTML = `
+                                <div class="file-preview">
+                                    <img src="${e.target.result}" alt="Payment Receipt" style="max-height: 400px;">
+                                    <p><strong>Payment Receipt</strong></p>
+                                    <p>Uploaded: ${new Date().toLocaleString()}</p>
+                                </div>
+                            `;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                    
+                    // Show print and save buttons
+                    printReceiptBtn.style.display = 'inline-block';
+                    savePdfBtn.style.display = 'inline-block';
+                }
+            });
+            
+            // Form submission
+            doneBtn.addEventListener('click', function() {
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const age = document.getElementById('age').value;
+                
+                // Validate form
+                if (!fullName || !email || !phone || !age || !receiptUpload.files[0]) {
+                    alert('Please fill all fields and upload payment receipt');
+                    return;
+                }
+                
+                if (age < 20) {
+                    alert('Only parent and teenage btw 20 and above years old is allow to book this service');
+                    return;
+                }
+                
+                // Show success message
+                const bookingSuccess = document.getElementById('bookingSuccess');
+                bookingSuccess.style.display = 'block';
+                
+                // Hide the form
+                document.querySelector('.booking-summary').style.display = 'none';
+                
+                // In a real app, you would send this data to your server
+                const bookingData = {
+                    service: serviceName,
+                    fullName,
+                    email,
+                    phone,
+                    age,
+                    bookingDate: new Date().toISOString()
+                };
+                
+                console.log('Booking data:', bookingData);
+            });
+            
+            // Initialize carousel
+            let currentImage = 0;
+            const images = document.querySelectorAll('.carousel-image');
+            
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+                currentImage = index;
+            }
+            
+            function nextImage() {
+                showImage((currentImage + 1) % images.length);
+            }
+            
+            function prevImage() {
+                showImage((currentImage - 1 + images.length) % images.length);
+            }
+            
+            // Auto-rotate carousel every 3 seconds
+            setInterval(nextImage, 3000);
+        });
+        
+        function closePopup() {
+            document.getElementById('accountPopup').style.display = 'none';
+        }
+
+        function printReceipt() {
+            const printableReceipt = document.getElementById('printableReceipt');
+            printableReceipt.style.display = 'block';
+            
+            // Open print dialog
+            window.print();
+            
+            // Hide again after printing
+            setTimeout(() => {
+                printableReceipt.style.display = 'none';
+            }, 1000);
+        }
+
+        function saveAsPdf() {
+            const element = document.getElementById('printableReceipt');
+            const opt = {
+                margin: 10,
+                filename: 'payment_receipt.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            // Generate PDF
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Ensure printable receipt is hidden after printing
+        window.onafterprint = function() {
+            document.getElementById('printableReceipt').style.display = 'none';
+        };
+    </script>
+    <script src="db.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

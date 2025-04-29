@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKOTECH Travels and Tours - Your Trusted Travel Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <header class="hero-header">
+        <!-- BACKGROUND IMAGE SLIDER -->
+        <div class="background-slider">
+            <div class="bg-image" style="background-image: url('SKO IMG/plane.jpeg');"></div>
+            <div class="bg-image" style="background-image: url('SKO IMG/Jeddah.png');"></div>
+            <div class="bg-image" style="background-image: url('SKO IMG/assi2.jpeg');"></div>
+            <div class="bg-image" style="background-image: url('SKO IMG/landmark9.jpg');"></div>
+        </div>
+        
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="SKO IMG/sko logo 2.jpg" alt="SKOTECH Travels">
+                </a>
+                <span></span>
+            </div>
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ar">العربية</option>
+                    <option value="yo">Yoruba</option>
+                    <option value="de">German</option>
+                    <option value="es">Spanish</option>
+                    <option value="tr">Turkish</option>
+                    <option value="zh">Chinese</option>
+                    <option value="pt">Portugese</option>
+                    <option value="nl">Dutch</option>
+                    <option value="hi">Hindi</option>
+                    <option value="pl">Polish</option>
+                    <option value="sw">Swahili</option>
+                    <option value="ko">Korean</option>
+                    <option value="ru">Russian</option>
+                    <option value="ja">Japanese</option>
+                </select>
+            </div>
+          
+            <ul class="nav-links">
+                <li><a href="#services" data-translate="nav_services">Services</a></li>
+                <li><a href="#about" data-translate="nav_about">About Us</a></li>
+                <li><a href="#testimonials" data-translate="nav_testimonials">Testimonials</a></li>
+                <li><a href="#partners" data-translate="nav_partners">Partners</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                
+                <!-- Affiliate Dropdown -->
+                <li class="affiliate-dropdown">
+                    <a href="#affiliate" class="affiliate-toggle" data-translate="nav_affiliate">Affiliate</a>
+                    <div class="affiliate-box">
+                        <ul>
+                            <li><a href="https://www.booking.com" target="_blank" rel="noopener noreferrer">Booking.com</a></li>
+                            <li><a href="https://www.nanta.com" target="_blank" rel="noopener noreferrer">Nanta.com</a></li>
+                            <li><a href="https://www.agoda.com" target="_blank" rel="noopener noreferrer">Agoda</a></li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <li><a href="login.html" class="btn btn-outline" data-translate="nav_login">Login</a></li>
+                <li><a href="book-now.html" class="btn btn-primary" data-translate="nav_book">Book Now</a></li>
+            </ul>
+          
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        
+        <div class="hero-content">
+            <h1 data-translate="hero_title">Your Journey Begins With Us</h1>
+            <p>RC: 746137 | <span data-translate="hero_subtitle">A Subsidiary of SKO Technology Limited</span></p>
+            <div class="cta-buttons">
+                <a href="book-now.html" class="btn btn-primary btn-large" data-translate="hero_book">Book Now</a>
+                <a href="#services" class="btn btn-outline btn-large" data-translate="hero_services">Our Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="features-section">
+        <h2 data-translate="services_title">Our Services</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="SKO IMG/pass1.jpeg" alt="International Passport" class="service-img">
+                <h3 data-translate="service_passport">International Passport Procurement</h3>
+                <p data-translate="service_passport_desc">Fast and reliable passport processing services for all your travel needs.</p>
+                <p class="price" data-translate="service_passport_price">Starting from ₦70,000</p>
+            </div>
+            <div class="feature-card">
+                <img src="SKO IMG/tiket.jpg" alt="Flight Tickets" class="service-img">
+                <h3 data-translate="service_flights">Flight Ticket Processing</h3>
+                <p data-translate="service_flights_desc">Local and international flight bookings at competitive prices.</p>
+                <p class="price" data-translate="service_flights_price">Best deals guaranteed</p>
+            </div>
+            <div class="feature-card">
+                <img src="SKO IMG/visa.png" alt="Visa Processing" class="service-img">
+                <h3 data-translate="service_visa">Visa Processing</h3>
+                <p data-translate="service_visa_desc">Tourist, Employment & Residency visa assistance.</p>
+                <p class="price" data-translate="service_visa_price">Starting from ₦50,000</p>
+            </div>
+            <div class="feature-card">
+                <img src="SKO IMG/landmark9.jpg" alt="Hotel Booking" class="service-img">
+                <h3 data-translate="service_hotel">Hotel Reservation Bookings</h3>
+                <p data-translate="service_hotel_desc">Luxurious accommodations at discounted rates worldwide.</p>
+                <p class="price" data-translate="service_hotel_price">Up to 40% off</p>
+            </div>
+        </div>
+    </section>
+
+     <!-- About Us Section -->
+     <section id="about" class="about-section">
+        <div class="section-header">
+            <h2 data-translate="about_title">About SKOTECH Travels</h2>
+        </div>
+        
+        <div class="about-container">
+            <div class="about-content">
+                <div class="about-tabs">
+                    <button class="tab-btn active" data-tab="about">About Us</button>
+                    <button class="tab-btn" data-tab="mission">Our Mission</button>
+                    <button class="tab-btn" data-tab="vision">Our Vision</button>
+                    <button class="tab-btn" data-tab="focus">Our Focus</button>
+                </div>
+                
+                <div id="about" class="tab-content active">
+                    <h3>Who We Are</h3>
+                    <p>SKOTECH Travels and Tours is a leading inbound tourism company and part of one of Nigeria's premier tour operator groups. As a well-established Destination Management Company (DMC), we have been successfully operating in both domestic and international travel markets, offering a wide range of services across Nigeria and neighboring countries.</p>
+                    <p>With over 20 years of experience in the travel industry, we are committed to providing services of the highest quality. Our greatest satisfaction comes from the large number of happy clients who have experienced the joy and inspiration of traveling through our services, leaving us with positive feedback and words of appreciation.</p>
+                </div>
+                
+                <div id="mission" class="tab-content">
+                    <h3>Our Mission</h3>
+                    <p>To make discovering the world easy and enjoyable while providing travel services that exceed our clients' expectations through personalized attention, creativity, and extensive industry experience.</p>
+                    <p>We strive to create seamless travel experiences by leveraging our expertise, technology, and global network to deliver exceptional value to our customers.</p>
+                </div>
+                
+                <div id="vision" class="tab-content">
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted and innovative travel partner in Nigeria, known for exceptional service quality and unforgettable travel experiences.</p>
+                    <p>We aim to transform the travel industry by setting new standards in customer service, operational efficiency, and innovative travel solutions.</p>
+                </div>
+                
+                <div id="focus" class="tab-content">
+                    <h3>Our Focus</h3>
+                    <p>At SKOTECH Travels, we focus on delivering:</p>
+                    <ul>
+                        <li>Personalized travel solutions tailored to individual needs</li>
+                        <li>Competitive pricing without compromising quality</li>
+                        <li>Innovative technology to simplify travel planning</li>
+                        <li>Exceptional customer service at every touchpoint</li>
+                        <li>Strategic partnerships to enhance our service offerings</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="SKO IMG/team.jpg" alt="SKOTECH Travels Team">
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="why-choose-section">
+        <h2 data-translate="why_choose_title">Why Choose SKO Technology Limited</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <i class="fas fa-smile"></i>
+                <h3 data-translate="reason_personal">Personalized Approach</h3>
+                <p>Our dynamic team managers provide personal attention to each client, considering their unique needs, requests, and budget to create trips that meet their expectations.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3 data-translate="reason_competitive">Competitive Prices</h3>
+                <p>We offer some of the most competitive prices in the industry without compromising on service quality, ensuring you get the best value for your money.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3 data-translate="reason_experience">20+ Years Experience</h3>
+                <p>With more than two decades in the travel industry, we combine our energy and enthusiasm with extensive expertise to deliver exceptional service.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-lightbulb"></i>
+                <h3 data-translate="reason_creative">Creative Solutions</h3>
+                <p>We listen to our clients, think creatively, and constantly hunt for fresh travel offers in Nigeria to provide innovative solutions tailored to your needs.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-globe-africa"></i>
+                <h3 data-translate="reason_nigeria">Nigeria Experts</h3>
+                <p>As specialists in Nigerian tourism, we offer unparalleled local knowledge and connections to provide authentic and memorable experiences.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-headset"></i>
+                <h3 data-translate="reason_support">Comprehensive Support</h3>
+                <p>From trip inspiration to existing bookings, our travel experts provide end-to-end support to ensure your Nigerian adventure is everything you dream of.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <h2 data-translate="testimonials_title">Client Testimonials</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-left"></i>
+                    <p data-translate="testimonial_1">SKOTECH helped me get my Canadian visa in record time. Highly recommended!</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-author">
+                    <img src="SKO IMG/test).jpeg" alt="Client 1">
+                    <h4>Oluwaseun A.</h4>
+                    <p>Canada</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-left"></i>
+                    <p data-translate="testimonial_2">Their airport assistance saved me when I missed my connecting flight in Dubai.</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-author">
+                    <img src="SKO IMG/blac).jpeg" alt="Client 2">
+                    <h4>Amina B.</h4>
+                    <p>Dubai</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <i class="fas fa-quote-left"></i>
+                    <p data-translate="testimonial_3">Got my UK visa in 4 weeks through SKOTECH. Professional service!</p>
+                    <i class="fas fa-quote-right"></i>
+                </div>
+                <div class="testimonial-author">
+                    <img src="images/testimonial-3.jpg" alt="Client 3">
+                    <h4>Chukwudi E.</h4>
+                    <p>United Kingdom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="partners-section">
+        <h2 data-translate="partners_title">Our Partners</h2>
+        <div class="partners-grid">
+            <img src="images/lo2.png" alt="Partner 1">
+            <img src="images/lo3.png" alt="Partner 2">
+            <img src="images/lo2.png" alt="Partner 3">
+            <img src="images/lo1.png" alt="Partner 4">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 data-translate="contact_title">Contact Us</h2>
+                <p><i class="fas fa-phone"></i>+2348129969132|+2348067355279</p>
+                <p><i class="fab fa-whatsapp"></i> +2348067355279</p>
+                <p><i class="fas fa-envelope"></i> skotechnology@gmail.com</p>
+
+                <p><i class="fas fa-map-marker-alt"></i> <span data-translate="contact_address">G6 Fayose Market, Ajilosun, Ado - Ekiti</span></p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                
+                <div class="newsletter-form">
+                    <h3 data-translate="newsletter_title">Subscribe to our newsletter</h3>
+                    <input type="email" id="newsletter-email" placeholder="Your email address" data-translate="newsletter_placeholder">
+                    <button type="button" id="subscribe-btn" data-translate="newsletter_button">Subscribe</button>
+                    <p id="subscription-message" style="display:none;"></p>
+                </div>
+            </div>
+            <div class="map-container" id="map"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SKOTECH Travels</h4>
+                <p>RC: 746137<br><span data-translate="footer_subtitle">A Subsidiary of SKO Technology Limited</span></p>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="footer_quicklinks">Quick Links</h4>
+                <ul>
+                    <li><a href="#" data-translate="footer_home">Home</a></li>
+                    <li><a href="#services" data-translate="nav_services">Services</a></li>
+                    <li><a href="#about" data-translate="nav_about">About Us</a></li>
+                    <li><a href="book-now.html" data-translate="nav_book">Book Now</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 data-translate="footer_contact">Contact</h4>
+                <p>Call: +234-8067355279<br>Email: Skotechnology@gmail.com<br></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 SKOTECH Travels and Tours. <span data-translate="footer_rights">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle affiliate dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const affiliateToggle = document.querySelector('.affiliate-toggle');
+            const dropdown = document.querySelector('.affiliate-dropdown');
+            
+            affiliateToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Language translation functionality
+        const translations = {
+            en: {
+                nav_services: "Services",
+                nav_about: "About Us",
+                nav_testimonials: "Testimonials",
+                nav_partners: "Partners",
+                nav_contact: "Contact",
+                nav_login: "Login",
+                nav_book: "Book Now",
+                hero_title: "Your Journey Begins With Us",
+                hero_subtitle: "A Subsidiary of SKO Technology Limited",
+                hero_book: "Book Now",
+                hero_services: "Our Services",
+                services_title: "Our Services",
+                service_passport: "International Passport Procurement",
+                service_passport_desc: "Fast and reliable passport processing services for all your travel needs.",
+                service_passport_price: "Starting from ₦70,000",
+                service_flights: "Flight Ticket Processing",
+                service_flights_desc: "Local and international flight bookings at competitive prices.",
+                service_flights_price: "Best deals guaranteed",
+                service_visa: "Visa Processing",
+                service_visa_desc: "Tourist, Employment & Residency visa assistance.",
+                service_visa_price: "Starting from ₦50,000",
+                service_hotel: "Hotel Reservation Bookings",
+                service_hotel_desc: "Luxurious accommodations at discounted rates worldwide.",
+                service_hotel_price: "Up to 40% off",
+                about_title: "About SKO Technology Limited",
+                mission_title: "Our Mission",
+                vision_title: "Our Vision",
+                why_choose_title: "Why Choose SKO Technology Limited",
+                reason_personal: "Personalized Approach",
+                reason_competitive: "Competitive Prices",
+                reason_experience: "20+ Years Experience",
+                reason_creative: "Creative Solutions",
+                reason_nigeria: "Nigeria Experts",
+                reason_support: "Comprehensive Support",
+                testimonials_title: "Client Testimonials",
+                testimonial_1: "SKOTECH helped me get my Canadian visa in record time. Highly recommended!",
+                testimonial_2: "Their airport assistance saved me when I missed my connecting flight in Dubai.",
+                testimonial_3: "Got my UK visa in 4 weeks through SKOTECH. Professional service!",
+                partners_title: "Our Partners",
+                contact_title: "Contact Us",
+                contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+                newsletter_title: "Subscribe to our newsletter",
+                newsletter_placeholder: "Your email address",
+                newsletter_button: "Subscribe",
+                footer_quicklinks: "Quick Links",
+                footer_home: "Home",
+                footer_subtitle: "A Subsidiary of SKO Technology Limited",
+                footer_contact: "Contact",
+                footer_rights: "All rights reserved."
+            },
+            fr: {
+                nav_services: "Services",
+                nav_about: "À propos",
+                nav_testimonials: "Témoignages",
+                nav_partners: "Partenaires",
+                nav_contact: "Contact",
+                nav_login: "Connexion",
+                nav_book: "Réserver maintenant",
+                hero_title: "Votre voyage commence avec nous",
+                hero_subtitle: "Une filiale de SKO Technology Limited",
+                hero_book: "Réserver maintenant",
+                hero_services: "Nos services",
+                services_title: "Nos services",
+                service_passport: "Obtention de passeport international",
+                service_passport_desc: "Services de traitement de passeport rapides et fiables pour tous vos besoins de voyage.",
+                service_passport_price: "À partir de ₦70,000",
+                service_flights: "Traitement des billets d'avion",
+                service_flights_desc: "Réservations de vols locaux et internationaux à des prix compétitifs.",
+                service_flights_price: "Meilleures offres garanties",
+                service_visa: "Traitement des visas",
+                service_visa_desc: "Assistance pour les visas touristiques, professionnels et de résidence.",
+                service_visa_price: "À partir de ₦50,000",
+                service_hotel: "Réservations d'hôtel",
+                service_hotel_desc: "Hébergements luxueux à tarifs réduits dans le monde entier.",
+                service_hotel_price: "Jusqu'à 40% de réduction",
+                about_title: "À propos de SKO Technology Limited",
+                mission_title: "Notre Mission",
+                vision_title: "Notre Vision",
+                why_choose_title: "Pourquoi choisir SKO Technology Limited",
+                reason_personal: "Approche Personnalisée",
+                reason_competitive: "Prix Compétitifs",
+                reason_experience: "Plus de 20 ans d'expérience",
+                reason_creative: "Solutions Créatives",
+                reason_nigeria: "Experts du Nigeria",
+                reason_support: "Support Complet",
+                testimonials_title: "Témoignages clients",
+                testimonial_1: "SKOTECH m'a aidé à obtenir mon visa canadien en un temps record. Hautement recommandé!",
+                testimonial_2: "Leur assistance à l'aéroport m'a sauvé lorsque j'ai raté mon vol de correspondance à Dubaï.",
+                testimonial_3: "J'ai obtenu mon visa UK en 2 semaines grâce à SKOTECH. Service professionnel!",
+                partners_title: "Nos partenaires",
+                contact_title: "Contactez-nous",
+                contact_address: "G6 Marché Fayose, Ajilosun, Ado - Ekiti",
+                newsletter_title: "Abonnez-vous à notre newsletter",
+                newsletter_placeholder: "Votre adresse e-mail",
+                newsletter_button: "S'abonner",
+                footer_quicklinks: "Liens rapides",
+                footer_home: "Accueil",
+                footer_subtitle: "Une filiale de SKO Technology Limited",
+                footer_contact: "Contact",
+                footer_rights: "Tous droits réservés."
+            },
+
+            es: {
+                nav_services: "Servicios",
+                nav_testimonials: "Testimonios",
+                nav_partners: "Socios",
+                nav_contact: "Contacto",
+                nav_login: "Iniciar sesión",
+                nav_book: "Reservar ahora",
+                hero_title: "Tu viaje comienza con nosotros",
+                hero_subtitle: "Una subsidiaria de SKO Technology Limited",
+                hero_book: "Reservar ahora",
+                hero_services: "Nuestros servicios",
+                services_title: "Nuestros servicios",
+                service_passport: "Obtención de pasaporte internacional",
+                service_passport_desc: "Servicios de procesamiento de pasaportes rápidos y confiables para todas sus necesidades de viaje.",
+                service_passport_price: "Desde ₦70,000",
+                service_flights: "Procesamiento de boletos de avión",
+                service_flights_desc: "Reservas de vuelos locales e internacionales a precios competitivos.",
+                service_flights_price: "Mejores ofertas garantizadas",
+                service_visa: "Procesamiento de visas",
+                service_visa_desc: "Asistencia para visas de turista, empleo y residencia.",
+                service_visa_price: "Desde ₦50,000",
+                service_hotel: "Reservas de hotel",
+                service_hotel_desc: "Alojamientos lujosos con descuentos en todo el mundo.",
+                service_hotel_price: "Hasta 40% de descuento",
+                testimonials_title: "Testimonios de clientes",
+                testimonial_1: "SKOTECH me ayudó a obtener mi visa canadiense en tiempo récord. ¡Muy recomendado!",
+                testimonial_2: "Su asistencia en el aeropuerto me salvó cuando perdí mi vuelo de conexión en Dubái.",
+                testimonial_3: "Obtuve mi visa para el Reino Unido en 2 semanas a través de SKOTECH. ¡Servicio profesional!",
+                partners_title: "Nuestros socios",
+                contact_title: "Contáctenos",
+                contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+                newsletter_title: "Suscríbase a nuestro boletín",
+                newsletter_placeholder: "Su dirección de correo electrónico",
+                newsletter_button: "Suscribirse",
+                footer_quicklinks: "Enlaces rápidos",
+                footer_home: "Inicio",
+                footer_subtitle: "Una subsidiaria de SKO Technology Limited",
+                footer_contact: "Contacto",
+                footer_rights: "Todos los derechos reservados."
+            },
+            ar: {
+                nav_services: "خدماتنا",
+                nav_testimonials: "شهادات العملاء",
+                nav_partners: "شركاؤنا",
+                nav_contact: "اتصل بنا",
+                nav_login: "تسجيل الدخول",
+                nav_book: "احجز الآن",
+                hero_title: "رحلتك تبدأ معنا",
+                hero_subtitle: "شركة تابعة لشركة SKO للتكنولوجيا المحدودة",
+                hero_book: "احجز الآن",
+                hero_services: "خدماتنا",
+                services_title: "خدماتنا",
+                service_passport: "الحصول على جواز سفر دولي",
+                service_passport_desc: "خدمات معالجة جوازات السفر السريعة والموثوقة لجميع احتياجات سفرك.",
+                service_passport_price: "تبدأ من ₦70,000",
+                service_flights: "معالجة تذاكر الطيران",
+                service_flights_desc: "حجوزات الطيران المحلية والدولية بأسعار تنافسية.",
+                service_flights_price: "أفضل العروض مضمونة",
+                service_visa: "معالجة التأشيرة",
+                service_visa_desc: "مساعدة في تأشيرات السياحة والعمل والإقامة.",
+                service_visa_price: "تبدأ من ₦50,000",
+                service_hotel: "حجوزات الفنادق",
+                service_hotel_desc: "إقامات فاخرة بأسعار مخفضة في جميع أنحاء العالم.",
+                service_hotel_price: "خصم يصل إلى 40٪",
+                testimonials_title: "شهادات العملاء",
+                testimonial_1: "ساعدني SKOTECH في الحصول على تأشيرة كندا في وقت قياسي. موصى به للغاية!",
+                testimonial_2: "أنقذتني مساعدتهم في المطار عندما فاتني رحلة التوصيل في دبي.",
+                testimonial_3: "حصلت على تأشيرة المملكة المتحدة في أسبوعين من خلال SKOTECH. خدمة احترافية!",
+                partners_title: "شركاؤنا",
+                contact_title: "اتصل بنا",
+                contact_address: "G6 سوق فايوس، أجيلوسون، أدو - إكيتي",
+                newsletter_title: "اشترك في نشرتنا الإخبارية",
+                newsletter_placeholder: "عنوان بريدك الإلكتروني",
+                newsletter_button: "اشترك",
+                footer_quicklinks: "روابط سريعة",
+                footer_home: "الرئيسية",
+                footer_subtitle: "شركة تابعة لشركة SKO للتكنولوجيا المحدودة",
+                footer_contact: "اتصل بنا",
+                footer_rights: "جميع الحقوق محفوظة."
+            },
+            yo: {
+                nav_services: "Awọn iṣẹ",
+                nav_testimonials: "Awọn ifọrọwanilẹnu",
+                nav_partners: "Awọn alabaṣepọ",
+                nav_contact: "Kan si wa",
+                nav_login: "Wo ile",
+                nav_book: "Ṣe iṣura bayi",
+                hero_title: "Irìn-ajo rẹ bẹrẹ pẹlu wa",
+                hero_subtitle: "Iṣẹlẹ ti SKO Technology Limited",
+                hero_book: "Ṣe iṣura bayi",
+                hero_services: "Awọn iṣẹ wa",
+                services_title: "Awọn iṣẹ wa",
+                service_passport: "Ṣiṣe iṣẹ passport agbaye",
+                service_passport_desc: "Awọn iṣẹ iṣelọpọ passport iyara ati ni ibẹwẹ fun gbogbo awọn iwulo irin-ajo rẹ.",
+                service_passport_price: "Bibẹrẹ lati ₦70,000",
+                service_flights: "Ṣiṣe iṣẹ tiketi irin-ajo",
+                service_flights_desc: "Awọn iṣura irin-ajo ile ati agbaye ni awọn owo ipele.",
+                service_flights_price: "Awọn iyalẹnu dara julọ ni atilẹyin",
+                service_visa: "Ṣiṣe iṣẹ visa",
+                service_visa_desc: "Iranlọwọ visa irin-ajo, iṣẹ & ibugbe.",
+                service_visa_price: "Bibẹrẹ lati ₦50,000",
+                service_hotel: "Awọn iṣura ibugbe",
+                service_hotel_desc: "Awọn ibugbe olokiki ni awọn owo eni kẹẹsi ni gbogbo agbaye.",
+                service_hotel_price: "Titi de 40% silẹ",
+                testimonials_title: "Awọn ifọrọwanilẹnu onibara",
+                testimonial_1: "SKOTECH ran mi lọwọ lati gba visa Canada mi ni akoko iṣẹju. A gba ni iyanju!",
+                testimonial_2: "Iranlọwọ wọn ni ọkọ ofurufu gba mi nigbati mo padanu irin-ajo mi ni Dubai.",
+                testimonial_3: "Mo gba visa UK mi ni ọsẹ meji nipasẹ SKOTECH. Iṣẹ iṣẹ!",
+                partners_title: "Awọn alabaṣepọ wa",
+                contact_title: "Kan si wa",
+                contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+                newsletter_title: "Ṣe alabapin si iwe iroyin wa",
+                newsletter_placeholder: "Adirẹsi imeeli rẹ",
+                newsletter_button: "Ṣe alabapin",
+                footer_quicklinks: "Awọn ọna asopọ iyara",
+                footer_home: "Ile",
+                footer_subtitle: "Iṣẹlẹ ti SKO Technology Limited",
+                footer_contact: "Kan si wa",
+                footer_rights: "Gbogbo ẹtọ wa ni ipamọ."
+            },
+de : {
+    nav_services: "Dienstleistungen",
+    nav_testimonials: "Referenzen",
+    nav_partners: "Partner",
+    nav_contact: "Kontakt",
+    nav_login: "Anmelden",
+    nav_book: "Jetzt buchen",
+    hero_title: "Ihre Reise beginnt mit uns",
+    hero_subtitle: "Eine Tochtergesellschaft der SKO Technology Limited",
+    hero_book: "Jetzt buchen",
+    hero_services: "Unsere Dienstleistungen",
+    services_title: "Unsere Dienstleistungen",
+    service_passport: "Internationale Passbeschaffung",
+    service_passport_desc: "Schnelle und zuverlässige Passbearbeitung für alle Ihre Reisebedürfnisse.",
+    service_passport_price: "Ab ₦70,000",
+    service_flights: "Flugticketbearbeitung",
+    service_flights_desc: "Lokale und internationale Flugbuchungen zu wettbewerbsfähigen Preisen.",
+    service_flights_price: "Beste Angebote garantiert",
+    service_visa: "Visabearbeitung",
+    service_visa_desc: "Hilfe bei Touristen-, Arbeits- und Aufenthaltsvisa.",
+    service_visa_price: "Ab ₦50,000",
+    service_hotel: "Hotelreservierungen",
+    service_hotel_desc: "Luxuriöse Unterkünfte zu reduzierten Preisen weltweit.",
+    service_hotel_price: "Bis zu 40% Rabatt",
+    testimonials_title: "Kundenreferenzen",
+    testimonial_1: "SKOTECH half mir, mein kanadisches Visum in Rekordzeit zu erhalten. Sehr empfehlenswert!",
+    testimonial_2: "Ihre Flughafenassistenz rettete mich, als ich meinen Anschlussflug in Dubai verpasste.",
+    testimonial_3: "Habe mein UK-Visum in 2 Wochen durch SKOTECH erhalten. Professioneller Service!",
+    partners_title: "Unsere Partner",
+    contact_title: "Kontaktieren Sie uns",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Abonnieren Sie unseren Newsletter",
+    newsletter_placeholder: "Ihre E-Mail-Adresse",
+    newsletter_button: "Abonnieren",
+    footer_quicklinks: "Schnelllinks",
+    footer_home: "Startseite",
+    footer_subtitle: "Eine Tochtergesellschaft der SKO Technology Limited",
+    footer_contact: "Kontakt",
+    footer_rights: "Alle Rechte vorbehalten.",
+    newsletter_success: "Vielen Dank für Ihr Abonnement!",
+    newsletter_error: "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+},
+
+es : {
+    nav_services: "Servicios",
+    nav_testimonials: "Testimonios",
+    nav_partners: "Socios",
+    nav_contact: "Contacto",
+    nav_login: "Iniciar sesión",
+    nav_book: "Reservar ahora",
+    hero_title: "Tu viaje comienza con nosotros",
+    hero_subtitle: "Una subsidiaria de SKO Technology Limited",
+    hero_book: "Reservar ahora",
+    hero_services: "Nuestros servicios",
+    services_title: "Nuestros servicios",
+    service_passport: "Obtención de pasaporte internacional",
+    service_passport_desc: "Servicios de procesamiento de pasaportes rápidos y confiables para todas sus necesidades de viaje.",
+    service_passport_price: "Desde ₦70,000",
+    service_flights: "Procesamiento de boletos de avión",
+    service_flights_desc: "Reservas de vuelos locales e internacionales a precios competitivos.",
+    service_flights_price: "Mejores ofertas garantizadas",
+    service_visa: "Procesamiento de visas",
+    service_visa_desc: "Asistencia para visas de turista, empleo y residencia.",
+    service_visa_price: "Desde ₦50,000",
+    service_hotel: "Reservas de hotel",
+    service_hotel_desc: "Alojamientos lujosos con descuentos en todo el mundo.",
+    service_hotel_price: "Hasta 40% de descuento",
+    testimonials_title: "Testimonios de clientes",
+    testimonial_1: "SKOTECH me ayudó a obtener mi visa canadiense en tiempo récord. ¡Muy recomendado!",
+    testimonial_2: "Su asistencia en el aeropuerto me salvó cuando perdí mi vuelo de conexión en Dubái.",
+    testimonial_3: "Obtuve mi visa para el Reino Unido en 2 semanas a través de SKOTECH. ¡Servicio profesional!",
+    partners_title: "Nuestros socios",
+    contact_title: "Contáctenos",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Suscríbase a nuestro boletín",
+    newsletter_placeholder: "Su dirección de correo electrónico",
+    newsletter_button: "Suscribirse",
+    footer_quicklinks: "Enlaces rápidos",
+    footer_home: "Inicio",
+    footer_subtitle: "Una subsidiaria de SKO Technology Limited",
+    footer_contact: "Contacto",
+    footer_rights: "Todos los derechos reservados.",
+    newsletter_success: "¡Gracias por suscribirte!",
+    newsletter_error: "Por favor ingrese una dirección de correo electrónico válida"
+},
+
+tr : {
+    nav_services: "Hizmetler",
+    nav_testimonials: "Müşteri Yorumları",
+    nav_partners: "Ortaklar",
+    nav_contact: "İletişim",
+    nav_login: "Giriş Yap",
+    nav_book: "Şimdi Rezervasyon Yap",
+    hero_title: "Yolculuğunuz Bizimle Başlar",
+    hero_subtitle: "SKO Technology Limited'in bir yan kuruluşu",
+    hero_book: "Şimdi Rezervasyon Yap",
+    hero_services: "Hizmetlerimiz",
+    services_title: "Hizmetlerimiz",
+    service_passport: "Uluslararası Pasaport Temini",
+    service_passport_desc: "Tüm seyahat ihtiyaçlarınız için hızlı ve güvenilir pasaport işlemleri.",
+    service_passport_price: "₦70,000'dan başlayan fiyatlar",
+    service_flights: "Uçak Bileti İşlemleri",
+    service_flights_desc: "Yurtiçi ve yurtdışı uçak bileti rezervasyonları rekabetçi fiyatlarla.",
+    service_flights_price: "En iyi fiyat garantisi",
+    service_visa: "Vize İşlemleri",
+    service_visa_desc: "Turist, çalışma ve ikamet vizeleri için yardım.",
+    service_visa_price: "₦50,000'dan başlayan fiyatlar",
+    service_hotel: "Otel Rezervasyonları",
+    service_hotel_desc: "Dünya çapında indirimli lüks konaklama seçenekleri.",
+    service_hotel_price: "%40'a varan indirimler",
+    testimonials_title: "Müşteri Yorumları",
+    testimonial_1: "SKOTECH, Kanada vizesini rekor sürede almama yardımcı oldu. Şiddetle tavsiye ederim!",
+    testimonial_2: "Dubai'de bağlantı uçağımı kaçırdığımda havaalanı yardımları beni kurtardı.",
+    testimonial_3: "SKOTECH sayesinde 2 hafta içinde İngiltere vizesi aldım. Profesyonel hizmet!",
+    partners_title: "Ortaklarımız",
+    contact_title: "Bize Ulaşın",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Bültenimize Abone Olun",
+    newsletter_placeholder: "E-posta adresiniz",
+    newsletter_button: "Abone Ol",
+    footer_quicklinks: "Hızlı Bağlantılar",
+    footer_home: "Ana Sayfa",
+    footer_subtitle: "SKO Technology Limited'in bir yan kuruluşu",
+    footer_contact: "İletişim",
+    footer_rights: "Tüm hakları saklıdır.",
+    newsletter_success: "Aboneliğiniz için teşekkür ederiz!",
+    newsletter_error: "Lütfen geçerli bir e-posta adresi girin"
+},
+
+zh : {
+    nav_services: "服务",
+    nav_testimonials: "客户评价",
+    nav_partners: "合作伙伴",
+    nav_contact: "联系我们",
+    nav_login: "登录",
+    nav_book: "立即预订",
+    hero_title: "您的旅程从我们开始",
+    hero_subtitle: "SKO科技有限公司的子公司",
+    hero_book: "立即预订",
+    hero_services: "我们的服务",
+    services_title: "我们的服务",
+    service_passport: "国际护照办理",
+    service_passport_desc: "快速可靠的护照处理服务，满足您所有的旅行需求。",
+    service_passport_price: "起价₦70,000",
+    service_flights: "机票处理",
+    service_flights_desc: "具有竞争力的国内和国际航班预订价格。",
+    service_flights_price: "最佳价格保证",
+    service_visa: "签证办理",
+    service_visa_desc: "旅游、工作和居留签证协助。",
+    service_visa_price: "起价₦50,000",
+    service_hotel: "酒店预订",
+    service_hotel_desc: "全球范围内的豪华住宿折扣价格。",
+    service_hotel_price: "高达40%的折扣",
+    testimonials_title: "客户评价",
+    testimonial_1: "SKOTECH帮助我在创纪录的时间内获得了加拿大签证。强烈推荐！",
+    testimonial_2: "当我在迪拜错过转机航班时，他们的机场援助救了我。",
+    testimonial_3: "通过SKOTECH在2周内获得了英国签证。专业服务！",
+    partners_title: "我们的合作伙伴",
+    contact_title: "联系我们",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "订阅我们的通讯",
+    newsletter_placeholder: "您的电子邮件地址",
+    newsletter_button: "订阅",
+    footer_quicklinks: "快速链接",
+    footer_home: "首页",
+    footer_subtitle: "SKO科技有限公司的子公司",
+    footer_contact: "联系我们",
+    footer_rights: "保留所有权利。",
+    newsletter_success: "感谢您的订阅！",
+    newsletter_error: "请输入有效的电子邮件地址"
+},
+
+pt : {
+    nav_services: "Serviços",
+    nav_testimonials: "Depoimentos",
+    nav_partners: "Parceiros",
+    nav_contact: "Contato",
+    nav_login: "Login",
+    nav_book: "Reserve Agora",
+    hero_title: "Sua Jornada Começa Conosco",
+    hero_subtitle: "Uma subsidiária da SKO Technology Limited",
+    hero_book: "Reserve Agora",
+    hero_services: "Nossos Serviços",
+    services_title: "Nossos Serviços",
+    service_passport: "Procuração de Passaporte Internacional",
+    service_passport_desc: "Serviços rápidos e confiáveis de processamento de passaporte para todas as suas necessidades de viagem.",
+    service_passport_price: "A partir de ₦70,000",
+    service_flights: "Processamento de Passagens Aéreas",
+    service_flights_desc: "Reservas de voos domésticos e internacionais a preços competitivos.",
+    service_flights_price: "Melhores ofertas garantidas",
+    service_visa: "Processamento de Visto",
+    service_visa_desc: "Assistência para vistos de turismo, trabalho e residência.",
+    service_visa_price: "A partir de ₦50,000",
+    service_hotel: "Reservas de Hotel",
+    service_hotel_desc: "Acomodações luxuosas com descontos em todo o mundo.",
+    service_hotel_price: "Até 40% de desconto",
+    testimonials_title: "Depoimentos de Clientes",
+    testimonial_1: "SKOTECH me ajudou a obter meu visto canadense em tempo recorde. Altamente recomendado!",
+    testimonial_2: "A assistência deles no aeroporto me salvou quando perdi meu voo de conexão em Dubai.",
+    testimonial_3: "Consegui meu visto para o Reino Unido em 2 semanas através da SKOTECH. Serviço profissional!",
+    partners_title: "Nossos Parceiros",
+    contact_title: "Entre em Contato",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Assine nossa newsletter",
+    newsletter_placeholder: "Seu endereço de e-mail",
+    newsletter_button: "Assinar",
+    footer_quicklinks: "Links Rápidos",
+    footer_home: "Início",
+    footer_subtitle: "Uma subsidiária da SKO Technology Limited",
+    footer_contact: "Contato",
+    footer_rights: "Todos os direitos reservados.",
+    newsletter_success: "Obrigado por se inscrever!",
+    newsletter_error: "Por favor, insira um endereço de e-mail válido"
+},
+
+nl :{
+    nav_services: "Diensten",
+    nav_testimonials: "Getuigenissen",
+    nav_partners: "Partners",
+    nav_contact: "Contact",
+    nav_login: "Inloggen",
+    nav_book: "Boek Nu",
+    hero_title: "Uw Reis Begint Bij Ons",
+    hero_subtitle: "Een dochteronderneming van SKO Technology Limited",
+    hero_book: "Boek Nu",
+    hero_services: "Onze Diensten",
+    services_title: "Onze Diensten",
+    service_passport: "Aanvraag Internationaal Paspoort",
+    service_passport_desc: "Snelle en betrouwbare paspoortverwerking voor al uw reisbehoeften.",
+    service_passport_price: "Vanaf ₦70,000",
+    service_flights: "Vliegticketverwerking",
+    service_flights_desc: "Binnenlandse en internationale vluchtboekingen tegen concurrerende prijzen.",
+    service_flights_price: "Beste deals gegarandeerd",
+    service_visa: "Visumaanvraag",
+    service_visa_desc: "Assistentie bij toeristen-, werk- en verblijfsvisa.",
+    service_visa_price: "Vanaf ₦50,000",
+    service_hotel: "Hotelreserveringen",
+    service_hotel_desc: "Luxe accommodaties met kortingen wereldwijd.",
+    service_hotel_price: "Tot 40% korting",
+    testimonials_title: "Klantgetuigenissen",
+    testimonial_1: "SKOTECH hielp me om mijn Canadese visum in recordtijd te krijgen. Zeer aanbevolen!",
+    testimonial_2: "Hun luchthavenassistentie redde me toen ik mijn aansluitende vlucht in Dubai miste.",
+    testimonial_3: "Kreeg mijn UK-visum in 2 weken via SKOTECH. Professionele service!",
+    partners_title: "Onze Partners",
+    contact_title: "Neem Contact Op",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Abonneer op onze nieuwsbrief",
+    newsletter_placeholder: "Uw e-mailadres",
+    newsletter_button: "Abonneren",
+    footer_quicklinks: "Snelle Links",
+    footer_home: "Home",
+    footer_subtitle: "Een dochteronderneming van SKO Technology Limited",
+    footer_contact: "Contact",
+    footer_rights: "Alle rechten voorbehouden.",
+    newsletter_success: "Bedankt voor uw inschrijving!",
+    newsletter_error: "Voer een geldig e-mailadres in"
+},
+
+hi : {
+    nav_services: "सेवाएं",
+    nav_testimonials: "ग्राहक प्रशंसापत्र",
+    nav_partners: "साझेदार",
+    nav_contact: "संपर्क करें",
+    nav_login: "लॉग इन",
+    nav_book: "अभी बुक करें",
+    hero_title: "आपकी यात्रा हमारे साथ शुरू होती है",
+    hero_subtitle: "SKO टेक्नोलॉजी लिमिटेड की एक सहायक कंपनी",
+    hero_book: "अभी बुक करें",
+    hero_services: "हमारी सेवाएं",
+    services_title: "हमारी सेवाएं",
+    service_passport: "अंतर्राष्ट्रीय पासपोर्ट प्राप्ति",
+    service_passport_desc: "आपकी सभी यात्रा आवश्यकताओं के लिए तेज़ और विश्वसनीय पासपोर्ट प्रसंस्करण सेवाएं।",
+    service_passport_price: "₦70,000 से शुरू",
+    service_flights: "फ्लाइट टिकट प्रसंस्करण",
+    service_flights_desc: "प्रतिस्पर्धी मूल्यों पर घरेलू और अंतरराष्ट्रीय उड़ान बुकिंग।",
+    service_flights_price: "सर्वोत्तम सौदों की गारंटी",
+    service_visa: "वीज़ा प्रसंस्करण",
+    service_visa_desc: "पर्यटक, रोजगार और निवास वीज़ा सहायता।",
+    service_visa_price: "₦50,000 से शुरू",
+    service_hotel: "होटल आरक्षण बुकिंग",
+    service_hotel_desc: "दुनिया भर में छूट पर विलासितापूर्ण आवास।",
+    service_hotel_price: "40% तक की छूट",
+    testimonials_title: "ग्राहक प्रशंसापत्र",
+    testimonial_1: "SKOTECH ने मुझे रिकॉर्ड समय में मेरा कनाडाई वीज़ा प्राप्त करने में मदद की। अत्यधिक अनुशंसित!",
+    testimonial_2: "जब मैंने दुबई में अपनी कनेक्टिंग फ्लाइट मिस की तो उनकी एयरपोर्ट सहायता ने मुझे बचाया।",
+    testimonial_3: "SKOTECH के माध्यम से 2 सप्ताह में मेरा UK वीज़ा मिल गया। पेशेवर सेवा!",
+    partners_title: "हमारे साझेदार",
+    contact_title: "हमसे संपर्क करें",
+    contact_address: "G6 फयोसे मार्केट, अजीलोसुन, अडो - एकिती",
+    newsletter_title: "हमारे न्यूज़लेटर की सदस्यता लें",
+    newsletter_placeholder: "आपका ईमेल पता",
+    newsletter_button: "सदस्यता लें",
+    footer_quicklinks: "त्वरित लिंक",
+    footer_home: "होम",
+    footer_subtitle: "SKO टेक्नोलॉजी लिमिटेड की एक सहायक कंपनी",
+    footer_contact: "संपर्क करें",
+    footer_rights: "सर्वाधिकार सुरक्षित।",
+    newsletter_success: "सदस्यता लेने के लिए धन्यवाद!",
+    newsletter_error: "कृपया एक मान्य ईमेल पता दर्ज करें"
+},
+
+pl : {
+    nav_services: "Usługi",
+    nav_testimonials: "Opinie klientów",
+    nav_partners: "Partnerzy",
+    nav_contact: "Kontakt",
+    nav_login: "Zaloguj się",
+    nav_book: "Zarezerwuj teraz",
+    hero_title: "Twoja podróż zaczyna się z nami",
+    hero_subtitle: "Córka SKO Technology Limited",
+    hero_book: "Zarezerwuj teraz",
+    hero_services: "Nasze usługi",
+    services_title: "Nasze usługi",
+    service_passport: "Uzyskanie paszportu międzynarodowego",
+    service_passport_desc: "Szybkie i niezawodne usługi związane z paszportem dla wszystkich Twoich potrzeb podróżnych.",
+    service_passport_price: "Ceny od ₦70,000",
+    service_flights: "Rezerwacja biletów lotniczych",
+    service_flights_desc: "Krajowe i międzynarodowe rezerwacje lotów w konkurencyjnych cenach.",
+    service_flights_price: "Gwarancja najlepszych ofert",
+    service_visa: "Proces wizowy",
+    service_visa_desc: "Pomoc w uzyskaniu wiz turystycznych, pracowniczych i pobytowych.",
+    service_visa_price: "Ceny od ₦50,000",
+    service_hotel: "Rezerwacje hoteli",
+    service_hotel_desc: "Luksusowe zakwaterowanie w obniżonych cenach na całym świecie.",
+    service_hotel_price: "Do 40% zniżki",
+    testimonials_title: "Opinie klientów",
+    testimonial_1: "SKOTECH pomógł mi uzyskać kanadyjską wizę w rekordowym czasie. Gorąco polecam!",
+    testimonial_2: "Ich pomoc na lotnisku uratowała mnie, gdy przegapiłem lot łączący w Dubaju.",
+    testimonial_3: "Dzięki SKOTECH dostałem wizę do Wielkiej Brytanii w 2 tygodnie. Profesjonalna obsługa!",
+    partners_title: "Nasi partnerzy",
+    contact_title: "Skontaktuj się z nami",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Zapisz się do naszego newslettera",
+    newsletter_placeholder: "Twój adres e-mail",
+    newsletter_button: "Zapisz się",
+    footer_quicklinks: "Szybkie linki",
+    footer_home: "Strona główna",
+    footer_subtitle: "Córka SKO Technology Limited",
+    footer_contact: "Kontakt",
+    footer_rights: "Wszelkie prawa zastrzeżone.",
+    newsletter_success: "Dziękujemy za zapisanie się!",
+    newsletter_error: "Proszę podać prawidłowy adres e-mail"
+},
+
+sw : {
+    nav_services: "Huduma",
+    nav_testimonials: "Ushuhuda wa Wateja",
+    nav_partners: "Washirika",
+    nav_contact: "Mawasiliano",
+    nav_login: "Ingia",
+    nav_book: "Hakisha Sasa",
+    hero_title: "Safari Yako Inaanza Nasi",
+    hero_subtitle: "Kampuni tanzu ya SKO Technology Limited",
+    hero_book: "Hakisha Sasa",
+    hero_services: "Huduma Zetu",
+    services_title: "Huduma Zetu",
+    service_passport: "Upataji Pasipoti ya Kimataifa",
+    service_passport_desc: "Huduma za haraka na za kuegemea za usindikaji pasipoti kwa mahitaji yako yote ya kusafiri.",
+    service_passport_price: "Kuanzia ₦70,000",
+    service_flights: "Usindikaji wa Tiketi za Ndege",
+    service_flights_desc: "Uhifadhi wa ndege za ndani na kimataifa kwa bei mashindano.",
+    service_flights_price: "Mikataba bora imehakikishiwa",
+    service_visa: "Usindikaji wa Viza",
+    service_visa_desc: "Msaada wa viza za utalii, ajira na makazi.",
+    service_visa_price: "Kuanzia ₦50,000",
+    service_hotel: "Uhifadhi wa Hotelini",
+    service_hotel_desc: "Makazi ya kifahari kwa bei za punguzo ulimwenguni kote.",
+    service_hotel_price: "Hadi punguzo la 40%",
+    testimonials_title: "Ushuhuda wa Wateja",
+    testimonial_1: "SKOTECH ilinisaidia kupata visa yangu ya Kanada kwa rekodi ya muda. Inapendekezwa sana!",
+    testimonial_2: "Msaada wao wa uwanja wa ndege uliniokoa nilipokosa ndege yangu ya kuunganisha huko Dubai.",
+    testimonial_3: "Nilipata visa yangu ya Uingereza kwa wiki 2 kupitia SKOTECH. Huduma ya kikazi!",
+    partners_title: "Washirika Wetu",
+    contact_title: "Wasiliana Nasi",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Jiandikishe kwa jarida letu",
+    newsletter_placeholder: "Anwani yako ya barua pepe",
+    newsletter_button: "Jiandikishe",
+    footer_quicklinks: "Viungo vya Haraka",
+    footer_home: "Nyumbani",
+    footer_subtitle: "Kampuni tanzu ya SKO Technology Limited",
+    footer_contact: "Mawasiliano",
+    footer_rights: "Haki zote zimehifadhiwa.",
+    newsletter_success: "Asante kwa kujiandikisha!",
+    newsletter_error: "Tafadhali ingiza anwani halali ya barua pepe"
+},
+
+ko : {
+    nav_services: "서비스",
+    nav_testimonials: "고객 평가",
+    nav_partners: "파트너",
+    nav_contact: "연락처",
+    nav_login: "로그인",
+    nav_book: "지금 예약",
+    hero_title: "여행은 우리와 함께 시작됩니다",
+    hero_subtitle: "SKO Technology Limited의 자회사",
+    hero_book: "지금 예약",
+    hero_services: "우리의 서비스",
+    services_title: "우리의 서비스",
+    service_passport: "국제 여권 취득",
+    service_passport_desc: "모든 여행 요구에 대한 빠르고 신뢰할 수 있는 여권 처리 서비스.",
+    service_passport_price: "₦70,000부터 시작",
+    service_flights: "항공권 처리",
+    service_flights_desc: "경쟁력 있는 가격으로 국내 및 국제 항공편 예약.",
+    service_flights_price: "최고의 거래 보장",
+    service_visa: "비자 처리",
+    service_visa_desc: "관광, 취업 및 거주 비자 지원.",
+    service_visa_price: "₦50,000부터 시작",
+    service_hotel: "호텔 예약",
+    service_hotel_desc: "전 세계적으로 할인된 가격으로 제공되는 고급 숙박 시설.",
+    service_hotel_price: "최대 40% 할인",
+    testimonials_title: "고객 평가",
+    testimonial_1: "SKOTECH는 제가 기록적인 시간 내에 캐나다 비자를 얻을 수 있도록 도왔습니다. 강력 추천합니다!",
+    testimonial_2: "두바이에서 연결 비행기를 놓쳤을 때 그들의 공항 지원이 저를 구했습니다.",
+    testimonial_3: "SKOTECH를 통해 2주 만에 영국 비자를 받았습니다. 전문적인 서비스!",
+    partners_title: "우리의 파트너",
+    contact_title: "연락처",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "뉴스레터 구독",
+    newsletter_placeholder: "이메일 주소",
+    newsletter_button: "구독",
+    footer_quicklinks: "빠른 링크",
+    footer_home: "홈",
+    footer_subtitle: "SKO Technology Limited의 자회사",
+    footer_contact: "연락처",
+    footer_rights: "모든 권리 보유.",
+    newsletter_success: "구독해 주셔서 감사합니다!",
+    newsletter_error: "유효한 이메일 주소를 입력하세요"
+},
+
+ru : {
+    nav_services: "Услуги",
+    nav_testimonials: "Отзывы",
+    nav_partners: "Партнеры",
+    nav_contact: "Контакты",
+    nav_login: "Войти",
+    nav_book: "Забронировать сейчас",
+    hero_title: "Ваше путешествие начинается с нас",
+    hero_subtitle: "Дочерняя компания SKO Technology Limited",
+    hero_book: "Забронировать сейчас",
+    hero_services: "Наши услуги",
+    services_title: "Наши услуги",
+    service_passport: "Оформление международного паспорта",
+    service_passport_desc: "Быстрые и надежные услуги по оформлению паспорта для всех ваших путешествий.",
+    service_passport_price: "От ₦70,000",
+    service_flights: "Оформление авиабилетов",
+    service_flights_desc: "Бронирование внутренних и международных авиабилетов по конкурентоспособным ценам.",
+    service_flights_price: "Гарантия лучших предложений",
+    service_visa: "Оформление визы",
+    service_visa_desc: "Помощь с туристическими, рабочими и резидентскими визами.",
+    service_visa_price: "От ₦50,000",
+    service_hotel: "Бронирование отелей",
+    service_hotel_desc: "Роскошные варианты размещения со скидками по всему миру.",
+    service_hotel_price: "До 40% скидки",
+    testimonials_title: "Отзывы клиентов",
+    testimonial_1: "SKOTECH помог мне получить канадскую визу в рекордные сроки. Очень рекомендую!",
+    testimonial_2: "Их помощь в аэропорту спасла меня, когда я пропустил стыковочный рейс в Дубае.",
+    testimonial_3: "Получил визу в Великобританию за 2 недели через SKOTECH. Профессиональный сервис!",
+    partners_title: "Наши партнеры",
+    contact_title: "Свяжитесь с нами",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "Подпишитесь на нашу рассылку",
+    newsletter_placeholder: "Ваш email адрес",
+    newsletter_button: "Подписаться",
+    footer_quicklinks: "Быстрые ссылки",
+    footer_home: "Главная",
+    footer_subtitle: "Дочерняя компания SKO Technology Limited",
+    footer_contact: "Контакты",
+    footer_rights: "Все права защищены.",
+    newsletter_success: "Спасибо за подписку!",
+    newsletter_error: "Пожалуйста, введите действительный адрес электронной почты"
+},
+
+ja :{
+    nav_services: "サービス",
+    nav_testimonials: "お客様の声",
+    nav_partners: "パートナー",
+    nav_contact: "お問い合わせ",
+    nav_login: "ログイン",
+    nav_book: "今すぐ予約",
+    hero_title: "あなたの旅は私たちと共に始まります",
+    hero_subtitle: "SKOテクノロジーリミテッドの子会社",
+    hero_book: "今すぐ予約",
+    hero_services: "私たちのサービス",
+    services_title: "私たちのサービス",
+    service_passport: "国際パスポート取得",
+    service_passport_desc: "すべての旅行ニーズに対応した迅速で信頼性の高いパスポート処理サービス。",
+    service_passport_price: "₦70,000から",
+    service_flights: "航空券手配",
+    service_flights_desc: "国内線・国際線の競争力のある価格での予約。",
+    service_flights_price: "最良の価格保証",
+    service_visa: "ビザ申請",
+    service_visa_desc: "観光、就労、居住ビザのサポート。",
+    service_visa_price: "₦50,000から",
+    service_hotel: "ホテル予約",
+    service_hotel_desc: "世界中の豪華な宿泊施設を割引価格で。",
+    service_hotel_price: "最大40%オフ",
+    testimonials_title: "お客様の声",
+    testimonial_1: "SKOTECHのおかげで記録的な速さでカナダビザを取得できました。強くおすすめします！",
+    testimonial_2: "ドバイで乗り継ぎ便に乗り遅れた時、空港サポートに助けられました。",
+    testimonial_3: "SKOTECHを通して2週間で英国ビザを取得しました。プロフェッショナルなサービスです！",
+    partners_title: "パートナー企業",
+    contact_title: "お問い合わせ",
+    contact_address: "G6 Fayose Market, Ajilosun, Ado - Ekiti",
+    newsletter_title: "ニュースレターを購読",
+    newsletter_placeholder: "メールアドレス",
+    newsletter_button: "購読する",
+    footer_quicklinks: "クイックリンク",
+    footer_home: "ホーム",
+    footer_subtitle: "SKOテクノロジーリミテッドの子会社",
+    footer_contact: "お問い合わせ",
+    footer_rights: "全著作権所有。",
+    newsletter_success: "ご登録ありがとうございます！",
+    newsletter_error: "有効なメールアドレスを入力してください"
+},
+        };
+
+
+            // Add translations for other languages similarly..
+
+        // Function to change language
+        function changeLanguage(language) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[language] && translations[language][key]) {
+                    element.textContent = translations[language][key];
+                    
+                    // Handle placeholder attributes
+                    if (element.hasAttribute('placeholder')) {
+                        element.setAttribute('placeholder', translations[language][key]);
+                    }
+                }
+            });
+        }
+
+        // Initialize with default language
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default language to English
+            changeLanguage('en');
+            
+            // Language selector event
+            document.getElementById('languageSelect').addEventListener('change', function() {
+                const selectedLanguage = this.value;
+                changeLanguage(selectedLanguage);
+            });
+            
+            // Initialize map
+            const map = L.map('map').setView([7.6236, 5.2209], 15); // Coordinates for Ado-Ekiti
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add a marker
+            L.marker([7.6236, 5.2209]).addTo(map)
+                .bindPopup('SKOTECH Travels and Tours<br>G6 Fayose Market, Ajilosun')
+                .openPopup();
+                
+            // Newsletter subscription
+            document.getElementById('subscribe-btn').addEventListener('click', function() {
+                const email = document.getElementById('newsletter-email').value;
+                const messageElement = document.getElementById('subscription-message');
+                
+                if (email && email.includes('@')) {
+                    // In a real implementation, you would send this to your server
+                    messageElement.textContent = translations[document.getElementById('languageSelect').value]['newsletter_success'] || 'Thank you for subscribing!';
+                    messageElement.style.color = 'green';
+                    messageElement.style.display = 'block';
+                    
+                    // Clear the input
+                    document.getElementById('newsletter-email').value = '';
+                    
+                    // Hide message after 3 seconds
+                    setTimeout(() => {
+                        messageElement.style.display = 'none';
+                    }, 3000);
+                } else {
+                    messageElement.textContent = translations[document.getElementById('languageSelect').value]['newsletter_error'] || 'Please enter a valid email address';
+                    messageElement.style.color = 'red';
+                    messageElement.style.display = 'block';
+                }
+            });
+            
+            // Add translations for newsletter messages
+            translations.en.newsletter_success = 'Thank you for subscribing!';
+            translations.en.newsletter_error = 'Please enter a valid email address';
+            translations.fr.newsletter_success = 'Merci pour votre abonnement!';
+            translations.fr.newsletter_error = 'Veuillez entrer une adresse email valide';
+            
+            // BACKGROUND IMAGE SLIDER FUNCTIONALITY
+            let currentIndex = 0;
+            const bgSlides = document.querySelectorAll('.bg-image');
+            
+            // Show first image immediately
+            bgSlides[0].classList.add('active');
+            
+            function changeBackground() {
+                // Remove active class from all
+                bgSlides.forEach(slide => slide.classList.remove('active'));
+                
+                // Add active class to current slide
+                bgSlides[currentIndex].classList.add('active');
+                
+                // Update index
+                currentIndex = (currentIndex + 1) % bgSlides.length;
+            }
+            
+            // Change background every 5 seconds
+            setInterval(changeBackground, 5000);
+        });
+    </script>
+     <script>
+        // Tab functionality for About Us section
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Rest of your existing JavaScript...
+        });
+    </script>
+    <script src="main.js"></script>
+    <script src="book.js"></script>
+</body>
+</html>
